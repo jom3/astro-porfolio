@@ -1,0 +1,29 @@
+<a href="https://github.com/jom3" target="_blank" class="see-more-container">
+  You want to see more? click here!
+</a>
+
+<style>
+  .see-more-container{
+    background-color: gray;
+    color: black;
+    text-decoration: none;
+    padding:1rem;
+    border-radius: 10px;
+    border: 2px double white;
+    font-weight: 600;
+  }
+  .see-more-container:hover{
+    animation: changeColor .3s ease-in-out forwards;
+  }
+  @keyframes changeColor{
+    from{
+      background-color: gray;
+      color: black;
+    }
+    to{
+      background-color: black;
+      color: white;
+      text-shadow: 0 0 1em gray, 0 0 0.2em gray;
+    }
+  }
+</style>

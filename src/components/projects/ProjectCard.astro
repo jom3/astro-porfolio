@@ -1,0 +1,73 @@
+---
+import type { Project } from './Projects.astro'
+
+interface Props{
+  project:Project
+}
+const { project } = Astro.props;
+---
+<a href={project.link} target="_blank"  class="project-card">
+  <img src={`/images/${project.image}`} alt={project.title} class="project-image" />
+  <span class="project-title">{project.title}</span>
+  <p class="project-paragraph">{project.desc.slice(0,210)}</p>
+  <div class="project-tech">
+    {
+      project.tech.map((tc)=>(
+        <img src={`/tech/${tc}.svg`} alt={tc} class="tech-image"/>
+      ))
+    }
+  </div>
+</a>
+
+<style>
+  .project-card {
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: gray;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0 0 1em blue, 0 0 0.2em blue;
+    border: 4px double gray;
+  }
+  .project-image {
+    border-radius: 10px 10px 5px 5px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .project-title {
+    font-size: 2rem;
+    text-transform: capitalize;
+    margin-top: 10px;
+  }
+  .project-paragraph {
+  }
+  .project-tech {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;
+    gap: 10px;
+  }
+  .tech-image{
+    width: 30px;
+  }
+  .project-card:hover{
+    animation: changeShadow .3s ease-in forwards;
+  }
+
+  @keyframes changeShadow{
+    from{
+      box-shadow: 0 0 1em blue, 0 0 0.2em blue;
+    }
+    to{
+      box-shadow: 0 0 1em white, 0 0 0.2em white;
+    }
+  }
+</style>

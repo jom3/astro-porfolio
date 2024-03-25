@@ -1,0 +1,50 @@
+---
+export interface Social{
+  name:string;
+  url:string;
+}
+const socialMedia:Social[]=[
+  {
+    name:'github',
+    url:'https://github.com/jom3',
+  },
+  {
+    name:'linkedin',
+    url:'https://www.linkedin.com/in/joams-mogro-gomez-442691103/',
+  },
+  {
+    name:'x',
+    url:'https://twitter.com/joams_mg',
+  }
+]
+---
+<div class="social-container">
+  
+  {
+    socialMedia.map((social)=>(
+      <a href={social.url} target="_blank">
+        <img src={`/social/${social.name}.svg`} alt={social.name}/>
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .social-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 10px;
+    gap: 5px;
+    bottom: 10px;
+    left: 10px;
+  }
+  @media (max-width: 750px) {
+    .social-container{
+      background-color: white;
+      opacity: .8;
+    }
+  }
+</style>

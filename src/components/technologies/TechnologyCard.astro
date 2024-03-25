@@ -1,0 +1,52 @@
+---
+import type { Technology } from './Technologies.astro';
+
+interface Props{
+  tech:Technology
+}
+const {tech} = Astro.props;
+
+---
+
+<div class="tech-card">
+  <span class="tech-title">{tech.name}</span>
+  <img src=`/tech/${tech.image}.svg` alt={tech.name} class="tech-image"/>
+</div>
+
+<style>
+  .tech-card {
+    min-width: 100px;
+    max-width: 100px;
+    height: 100px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    border: 4px double gray;
+    border-radius: 1rem;
+    box-shadow: 0 0 1em blue, 0 0 0.2em blue;
+  }
+  .tech-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .tech-image{
+    width: 80%;
+    object-fit: contain;
+    
+  }
+  .tech-card:hover{
+    animation: changeShadow .3s ease-in forwards;
+  }
+
+  @keyframes changeShadow{
+    from{
+      box-shadow: 0 0 1em blue, 0 0 0.2em blue;
+    }
+    to{
+      box-shadow: 0 0 1em white, 0 0 0.2em white;
+    }
+  }
+</style>

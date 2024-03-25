@@ -1,0 +1,153 @@
+---
+import HeaderLogo from "./HeaderLogo.astro"
+
+export interface NavItem{
+  name:string;
+  id:string;
+}
+
+const navItems:NavItem[]=[
+  {
+    name:'about',
+    id:'#about',
+  },
+  {
+    name:'technologies',
+    id:'#technologies',
+  },
+  {
+    name:'projects',
+    id:'#projects',
+  },
+  {
+    name:'contact',
+    id:'#contact',
+  }
+]
+
+---
+<div class=`nav-container`>
+  <a href="/" style="width: 50px;">
+    <HeaderLogo />
+  </a>
+  <button class="menu-button" id="menu-button">
+    <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 6H20M4 12H20M4 18H20" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <nav class="navbar">
+    {
+      navItems.map((item)=>(
+        <a href={item.id} class="nav-item">{item.name}</a>
+      ))
+    }
+  </nav>
+  <aside class="sidenav toggleSidenav" id="sidenav">
+    {
+      navItems.map((item)=>(
+        <a href={item.id} class="nav-item">{item.name}</a>
+      ))
+    }
+  </aside>
+</div>
+
+<style>
+.nav-container {
+  width: 100%;
+  height: 50px;
+  padding: 10px 30px;
+  background: #13151a;
+  opacity: .9;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  border-bottom: 0.2rem double white;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.sidenav {
+  display: flex;
+  position: fixed;
+  right: 1px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: #13151a;
+  border: 2px double gray;
+  top: 50px;
+  flex-direction: column;
+  gap: 2rem;
+  animation: toggleSideNav .3s ease-in forwards;
+}
+.menu-button{
+  border: none;
+  display: none;
+  background: #13151a;
+  cursor: pointer;
+  border-radius: 100%;
+}
+.toggleSidenav{
+  display: none;
+}
+.nav-item {
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav-item:hover{
+  animation: hoverItem .15s ease-in forwards;
+}
+@media (max-width: 750px) {
+  .navbar{
+    display: none;
+  }
+  .menu-button{
+    display: block;
+  }
+}
+@keyframes toggleSideNav{
+  from{
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes hoverItem{
+  from{
+    color: white;
+    text-decoration: none;
+  }
+  to{
+    color: rgb(156, 156, 156);
+    text-decoration: underline;
+  }
+}
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menu-button')
+  const sidenav = document.querySelector('#sidenav')
+  menuToggle?.addEventListener('mouseenter',()=>{
+    sidenav?.classList.remove('toggleSidenav')
+    sidenav?.classList.add('sidenav')
+  })
+
+  sidenav?.addEventListener('click',()=>{
+    sidenav?.classList.add('toggleSidenav')
+    sidenav?.classList.remove('sidenav')
+  })
+
+  sidenav?.addEventListener('mouseleave',()=>{
+    sidenav?.classList.add('toggleSidenav')
+    sidenav?.classList.remove('sidenav')
+  })
+
+</script>

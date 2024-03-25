@@ -1,0 +1,93 @@
+---
+import TechnolgyCard from "./TechnologyCard.astro";
+export interface Technology{
+  name:string;
+  image:string;
+}
+const technologies:Technology[]=[
+  {
+    name:'JavaScript',
+    image:'js',
+  },
+  {
+    name:'TypeScript',
+    image:'ts',
+  },
+  {
+    name:'Angular',
+    image:'angular',
+  },
+  {
+    name:'React',
+    image:'react',
+  },
+  {
+    name:'Astro',
+    image:'astro',
+  },
+  {
+    name:'Nextjs',
+    image:'next'
+  },
+  {
+    name:'Nodejs',
+    image:'node',
+  },
+  {
+    name:'Nestjs',
+    image:'nest',
+  },
+  {
+    name:'HTML',
+    image:'html',
+  },
+  {
+    name:'CSS3',
+    image:'css'
+  },
+  {
+    name:'TailwindCSS',
+    image:'tailwind'
+  }
+]
+---
+<span id="technologies"></span>
+<div class="technologies-container">
+  <span class="technologies-title">Technologies</span>
+  <section class="technologies-section">
+    {
+      technologies.map((tech)=>(
+        <TechnolgyCard tech={tech} />
+      ))
+    }
+  </section>
+</div>
+
+<style>
+  .technologies-container {
+    min-height: 100vh;
+    display: flex;
+    padding: 1rem 2rem;
+    flex-direction: column;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .technologies-title{
+    font-size: xx-large;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    color: gray;
+    text-shadow: 0 0 1em blue, 0 0 0.2em blue;
+  }
+  .technologies-section {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+</style>

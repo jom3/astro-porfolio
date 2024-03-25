@@ -1,0 +1,79 @@
+---
+import ProjectCard from './ProjectCard.astro'
+import SeeMoreButton from './SeeMoreButton.astro'
+export interface Project{
+  image:string;
+  title:string;
+  desc:string;
+  tech:string[];
+  link:string;
+}
+const ProjectList:Project[]=[
+  {
+    image:'rickandmorty.jpg',
+    title:'rick and morty',
+    desc:`Rick and morty's app, it's an example to how to make a web app with angular and tailwind, it can be simple but it's not, this app use the Rick and Morty API, it has different funtionalities like search a character, show all the information about it, etc.`,
+    tech:['angular','tailwind'],
+    link:'https://github.com/jom3/rick-and-morty-app'
+  },
+  {
+    image:'moviedb.svg',
+    title:'MovieDB APP',
+    desc:`MovieDB's app, this application was made with angular and tailwind, it used themoviedb API, it has different funtionalities show all the information about a movie when it is clicked in the main page, etc.`,
+    tech:['angular','tailwind'],
+    link:'https://github.com/jom3/moviedbApp'
+  },
+  {
+    image:'todo.jpg',
+    title:'TODO APP',
+    desc:'This is an application to do some activities, and these activities have more internal activities, this app works with an internal database, this database is called json-server.',
+    tech:['angular', 'tailwind', 'json'],
+    link:'https://github.com/jom3/todo-app'
+  },
+  {
+    image:'portfolio.png',
+    title:'Portfolio',
+    desc:'This portfolio is this page, this describe who am I and I do',
+    tech:['astro','css','javascript','html'],
+    link:'https://github.com/jom3/astro-porfolio'
+  }
+]
+---
+<span id="projects"></span>
+<h1 class="projects-title">Projects</h1>
+<div class="projects-container">
+  <div class="project-section">
+    {
+      ProjectList.map((project)=>(
+        <ProjectCard project={project}/>
+      ))
+    }
+  </div>
+  <SeeMoreButton />
+</div>
+
+<style>
+  .projects-title{
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    color: gray;
+    text-shadow: 0 0 1em blue, 0 0 0.2em blue;
+    text-align: center;
+  }
+  .projects-container{
+    min-height: 100vh;
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  .project-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+</style>

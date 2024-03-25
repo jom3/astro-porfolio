@@ -1,0 +1,103 @@
+<div class="about-container" id="about">
+  <section class="about-section">
+    <div class="about-info-container">
+      <span class="about-title">Hello, It's me</span>
+      <p class="about-desc">
+        I'm <span class="about-special">Joams Mogro</span>, a full stack
+        developer, I have a different set of skills with frameworks and
+        libraries of
+        <span class="about-special">JavaScript</span> and <span
+          class="about-special">TypeScript</span
+        >.
+      </p>
+      <div class="about-contact">
+        <img src=`/wp.svg` alt="wp-image" class="about-image" />
+        <span>+591 78708780</span>
+        <img src=`/location.svg` alt="location-image" class="about-image" />
+        <span>Tarija - Bolivia</span>
+        <a href="https://drive.google.com/uc?export=download&id=12o-ZZAwLPx9eJjLYNWB8e3v13JkIgeBX" target="_blank">
+          <img src="/social/cv.svg" alt="cv" class="about-image">
+        </a>
+      </div>
+    </div>
+    <div class="about-profile-container">
+      <img src="/profile.jpg" alt="imagen" class="about-profile" />
+    </div>
+  </section>
+</div>
+
+<style>
+  .about-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-section {
+    width: 700px;
+    height: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .about-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .about-title {
+    font-size: 3rem;
+    color: gray;
+    text-shadow:
+      0 0 1em blue,
+      0 0 0.2em blue;
+  }
+  .about-desc {
+    font-size: 1.4rem;
+    color: gray;
+    text-shadow:
+      0 0 1em blue,
+      0 0 0.2em blue;
+  }
+  .about-special {
+    color: white;
+  }
+  .about-profile-container {
+    width: 1000px;
+  }
+  .about-contact{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .about-image{
+    width: 30px;
+  }
+  .about-profile {
+    width: 100%;
+    border-radius: 100%;
+    box-shadow:
+      0 0 1em blue,
+      0 0 0.2em blue;
+  }
+
+  @media (max-width: 750px) {
+    .about-section {
+      margin-top: 3rem;
+      flex-direction: column-reverse;
+    }
+    .about-profile-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about-profile {
+      width: 300px;
+    }
+  }
+</style>

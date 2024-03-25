@@ -1,0 +1,118 @@
+<div class="contact-container" id="contact">
+  <h1 class="contact-title">Contact me</h1>
+  <form action={`https://api.web3forms.com/submit`} method="POST" class="contact-form">
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="full name"
+      class="contact-input"
+      required
+    />
+    <input type="hidden" name="access_key" value={import.meta.env.SECRET_KEY}>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="email"
+      class="contact-input"
+      required
+    />
+    <textarea
+      name="message"
+      id="message"
+      cols={30}
+      rows={10}
+      placeholder="message"
+      class="contact-area"
+      required></textarea>
+    <button type="submit" class="contact-button" id="submit-button">Submit</button>
+  </form>
+</div>
+
+<style>
+  .contact-container {
+    min-height: 100vh;
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-title{
+    text-transform: uppercase;
+    text-shadow: 0 0 1em blue, 0 0 0.2em blue;
+  }
+  .contact-form {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+    border: 4px double gray;
+    gap: 1.5rem;
+    align-items: center;
+    box-shadow: 0 0 1em white, 0 0 0.2em white;
+  }
+  .contact-input {
+    padding: 0.5rem;
+    text-align: center;
+    width: 100%;
+    background: gray;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    color: black;
+    outline: none;
+  }
+  .contact-area {
+    text-align: center;
+    padding: 1rem 0.5rem;
+    resize: none;
+    min-width: 100%;
+    background: gray;
+    border-radius: 5px;
+    font-weight: 600;
+    color: black;
+    outline: none;
+  }
+  .contact-button {
+    border: 2px solid gray;
+    padding: 10px 0;
+    border-radius: 5px;
+    width: 100px;
+    background-color: #13151a;
+    color: gray;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .contact-input::placeholder{
+    color: rgb(19, 21, 26,.4);
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .contact-area::placeholder{
+    color: rgb(19, 21, 26,.4);
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .contact-button:hover{
+    animation: changeColor .3s ease-in-out forwards;
+  }
+  @media (max-width: 750px) {
+    .contact-form{
+      width: 300px;
+    }
+  }
+  @keyframes changeColor{
+    from{
+      box-shadow: none;
+    }
+    to{
+      box-shadow: 0 0 1em white, 0 0 0.2em white;
+    }
+  }
+</style>
