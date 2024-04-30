@@ -1,3 +1,7 @@
+---
+const currentPath = Astro.url
+
+---
 <div class="contact-container" id="contact">
   <h1 class="contact-title">Contact me</h1>
   <form action={`https://api.web3forms.com/submit`} method="POST" class="contact-form">
@@ -10,6 +14,7 @@
       required
     />
     <input type="hidden" name="access_key" value={import.meta.env.SECRET_KEY}>
+    <input type="hidden" name="redirect" value=`${currentPath}/success`>
     <input
       type="email"
       name="email"
@@ -77,10 +82,10 @@
     outline: none;
   }
   .contact-button {
-    border: 2px solid gray;
     padding: 10px 0;
     border-radius: 5px;
     width: 100px;
+    border: 2px solid gray;
     background-color: #13151a;
     color: gray;
     cursor: pointer;
